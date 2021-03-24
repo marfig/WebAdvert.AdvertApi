@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Marvin F.</Authors>
+    <Company>None</Company>
+    <Product>Web Advert Microservices</Product>
+    <PackageProjectUrl>https://github.com/marfig/WebAdvert.AdvertApi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/marfig/WebAdvert.AdvertApi</RepositoryUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>Marvin.AdvertApi.Models</PackageId>
   </PropertyGroup>
 
 </Project>

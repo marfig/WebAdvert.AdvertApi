@@ -1,9 +1,8 @@
-﻿using AdvertApi.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using AdvertApi.Models;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 
@@ -16,6 +15,15 @@ namespace AdvertApi.Services
         public DynamoDBAdvertStorage(IMapper mapper)
         {
             _mapper = mapper;
+        }
+
+        public async Task<bool> CheckHealthAsync()
+        {
+            using(var client = new AmazonDynamoDBClient())
+            {
+                var tableData = await client.DescribeTableAsync("Adverts");
+                return tableData.Table.TableStatus == TableStatus.ACTIVE;
+            }
         }
 
         public async Task<string> Add(AdvertModel model)
